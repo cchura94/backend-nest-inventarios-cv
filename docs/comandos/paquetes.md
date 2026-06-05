@@ -14,3 +14,12 @@ Para configurar variables de entorno:
 ```
 pnpm add @nestjs/config
 ```
+
+- Para trabajar con Bases de datos (TypeORM)
+```
+pnpm add @nestjs/typeorm typeorm pg
+```
+- instalar dotenv para variables de entorno
+```
+pnpm add dotenv
+```
