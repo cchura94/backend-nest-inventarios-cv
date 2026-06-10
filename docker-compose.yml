@@ -2,6 +2,7 @@ services:
   postgres_nest:
     container_name: postgres_nest
     image: postgres:16-alpine
+    restart: always
     ports:
       - "${BD_PORT}:5432" # Usa la variable del .env
     environment:

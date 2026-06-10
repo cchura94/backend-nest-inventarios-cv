@@ -19,7 +19,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "typeorm:run": "npm run typeorm migration:run -- -d typeorm.config.ts",
+    "migration:run": "npm run typeorm migration:run -- -d typeorm.config.ts",
     "migration:generate": "npm run typeorm migration:generate -- -d typeorm.config.ts src/database/migrations/%npm_config_name%",
     "migration:create": "npm run typeorm migration:create src/database/migrations/%npm_config_name%"
   },
@@ -30,6 +30,8 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.4.4",
     "@nestjs/typeorm": "^11.0.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
     "dotenv": "^17.4.2",
     "pg": "^8.21.0",
     "reflect-metadata": "^0.2.2",

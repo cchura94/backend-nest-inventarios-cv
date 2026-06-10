@@ -23,3 +23,8 @@ pnpm add @nestjs/typeorm typeorm pg
 ```
 pnpm add dotenv
 ```
+
+- Instalar para validacion
+```
+pnpm add class-validator class-transformer
+```
