@@ -28,3 +28,9 @@ pnpm add dotenv
 ```
 pnpm add class-validator class-transformer
 ```
+
+- Para cifrar contraseñas
+```
+pnpm add bcrypt
+pnpm approve-builds
+```

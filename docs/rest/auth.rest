@@ -1,0 +1,7 @@
+POST http://127.0.0.1:5000/auth/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "oscar@mail.com",
+    "password": "oscar54321"
+}
