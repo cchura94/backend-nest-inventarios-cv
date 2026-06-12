@@ -1,11 +1,41 @@
-GET http://127.0.0.1:5000/users
 
-### Guardar
-POST http://127.0.0.1:5000/users
+@baseUrl = http://127.0.0.1:5000
+
+### Obtener todos los usuarios
+GET {{baseUrl}}/users
+
+###
+
+### Obtener usuario por ID
+GET {{baseUrl}}/users/72944466-1742-40de-bab8-246fb0250f85
+
+###
+
+### Crear usuario
+POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
-    "name": "oscar",
-    "email": "oscar@mail.com",
-    "password": "oscar54321"
+    "name": "oscar3",
+    "email": "oscar3@mail.com",
+    "password": "oscar354321"
 }
+
+###
+
+### Actualizar usuario
+PATCH {{baseUrl}}/users/72944466-1742-40de-bab8-246fb0250f85
+Content-Type: application/json
+
+{
+    "name": "Oscar Pérez",
+    "email": "oscar.perez@mail.com",
+    "password": "nuevaClave123"
+}
+
+###
+
+###
+
+### Eliminar usuario
+DELETE {{baseUrl}}/users/1

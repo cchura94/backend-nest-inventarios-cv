@@ -1,10 +1,11 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { UsersService } from '../admin/users/users.service';
 import { hash, compare } from "bcrypt"
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-    constructor(private readonly userService: UsersService){}
+    constructor(private readonly userService: UsersService, private jwtService: JwtService){}
 
     async funLogin(email: string, pass_entrante: string){
         // buscar user por email
@@ -18,9 +19,17 @@ export class AuthService {
         if(!verificarPass) throw new HttpException('Contraseña Incorrecta', 401);
 
         // JWT (Json Web Token)
+        const payload = {
+            sub: user.id,
+            email: user.email
+        }
+
+        const access_token = await this.jwtService.signAsync(payload);
 
         // return
-        return user;
+        return {
+            access_token
+        };
 
     }
 }
