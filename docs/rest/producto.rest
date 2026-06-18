@@ -2,7 +2,7 @@
 @baseUrl = http://127.0.0.1:5000
 
 ### Obtener todos los usuarios
-GET {{baseUrl}}/users
+GET {{baseUrl}}/producto?search=LAP
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYzBlZjM3Mi1lZTViLTQwZWEtOTlkYy1iODYwN2UyZGM4YjYiLCJlbWFpbCI6Im9zY2FyQG1haWwuY29tIiwiaWF0IjoxNzgxNzQ3NDgzLCJleHAiOjE3ODE3NTQ2ODN9.f0OWqfgxisyhDfF3a7tFILUqVDfO5X-wjTPy8iqbr2s
 ###
 
