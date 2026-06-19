@@ -27,6 +27,7 @@ export class ProductoService {
 
   async findAll(page: number = 1, limit: number=10, search: string = '', almacen: number = 0, estado: boolean = true) {
 
+    
     const queryBuilder = this.productoRepository.createQueryBuilder('producto')
             .leftJoinAndSelect('producto.almacenes', 'productoAlmacen')
             .leftJoinAndSelect('productoAlmacen.almacen', 'almacen')

@@ -1,9 +1,14 @@
 
 @baseUrl = http://127.0.0.1:5000
 
-### Obtener todos los usuarios
-GET {{baseUrl}}/producto?search=LAP
+### Obtener todos los productos
+GET {{baseUrl}}/producto?page=1&limit=10&search=&almacen=&estado=true
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYzBlZjM3Mi1lZTViLTQwZWEtOTlkYy1iODYwN2UyZGM4YjYiLCJlbWFpbCI6Im9zY2FyQG1haWwuY29tIiwiaWF0IjoxNzgxNzQ3NDgzLCJleHAiOjE3ODE3NTQ2ODN9.f0OWqfgxisyhDfF3a7tFILUqVDfO5X-wjTPy8iqbr2s
+
+### lista 2
+GET {{baseUrl}}/producto/lista?page=1&limit=10&search=&almacen=0&estado=true
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYzBlZjM3Mi1lZTViLTQwZWEtOTlkYy1iODYwN2UyZGM4YjYiLCJlbWFpbCI6Im9zY2FyQG1haWwuY29tIiwiaWF0IjoxNzgxNzQ3NDgzLCJleHAiOjE3ODE3NTQ2ODN9.f0OWqfgxisyhDfF3a7tFILUqVDfO5X-wjTPy8iqbr2s
+###
 ###
 
 ### Obtener usuario por ID

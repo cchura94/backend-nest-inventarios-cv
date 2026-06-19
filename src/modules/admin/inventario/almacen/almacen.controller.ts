@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { AlmacenService } from './almacen.service';
 import { CreateAlmacenDto } from './dto/create-almacen.dto';
 import { UpdateAlmacenDto } from './dto/update-almacen.dto';
+import { FindAlmacenDto } from './dto/find-almacen.dto';
 
 @Controller('almacen')
 export class AlmacenController {
@@ -13,8 +14,8 @@ export class AlmacenController {
   }
 
   @Get()
-  findAll() {
-    return this.almacenService.findAll();
+  findAll(@Query() filter: FindAlmacenDto) {
+    return this.almacenService.findAll(filter);
   }
 
   @Get(':id')
