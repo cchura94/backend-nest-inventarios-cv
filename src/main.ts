@@ -20,10 +20,12 @@ async function bootstrap() {
   // endswagger
 
   // validacion (class validator)
+  /*
   app.useGlobalPipes(new ValidationPipe({
      whitelist: true,
      forbidNonWhitelisted: true
   }));
+  */
 
   // CORS
   app.enableCors()
