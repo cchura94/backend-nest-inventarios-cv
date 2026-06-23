@@ -1,10 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
-import { Repository } from 'typeorm';
+import { Not, Repository } from 'typeorm';
 import { Producto } from './entities/producto.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Categoria } from '../categoria/entities/categoria.entity';
+
 
 @Injectable()
 export class ProductoService {
@@ -59,8 +60,11 @@ export class ProductoService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} producto`;
+  async findOne(id: number) {
+    const producto = await this.productoRepository.findOne({where: {id}});
+    if(!producto) throw new NotFoundException('producto no encontrado');
+
+    return producto;
   }
 
   update(id: number, updateProductoDto: UpdateProductoDto) {
@@ -69,5 +73,27 @@ export class ProductoService {
 
   remove(id: number) {
     return `This action removes a #${id} producto`;
+  }
+
+  async subirImagen(file: Express.Multer.File, id: number){
+    // validar
+    const valid = ['image/jpeg', 'image/png', 'image/jpg'];
+
+    if(!valid.includes(file.mimetype)){
+      throw new BadRequestException('Formato Invalido');
+    }
+
+    // validar el tamaño del archivo
+    const maxSize = 20 * 1024 * 1024;
+
+    if(file.size > maxSize){
+      throw new BadRequestException('El archivo es muy grande');
+    }
+
+    const producto = await this.findOne(id);
+    producto.imagen = file.path;
+    this.productoRepository.save(producto);
+
+    return {message: 'archivo subido', filepath: file.path}
   }
 }

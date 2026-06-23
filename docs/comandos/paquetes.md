@@ -40,3 +40,10 @@ pnpm approve-builds
 ```
 pnpm add @nestjs/jwt
 ```
+
+- Para Archivos (imagenes)
+
+```
+pnpm add multer
+pnpm add -D @types/multer
+```
